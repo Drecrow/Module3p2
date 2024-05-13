@@ -16,8 +16,7 @@ public class Userinterface extends JFrame implements ActionListener {
         setTitle("Menu Example");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        // Create top bar with menu
+
         menuBar = new JMenuBar();
         JMenu menu = new JMenu("Menu");
         printDateTimeItem = new JMenuItem("Print Date/Time");
@@ -35,12 +34,11 @@ public class Userinterface extends JFrame implements ActionListener {
         menuBar.add(menu);
         setJMenuBar(menuBar);
 
-        // Create text area
         outputTextArea = new JTextArea();
         outputTextArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(outputTextArea);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
-        
+
         setVisible(true);
     }
 
@@ -60,8 +58,9 @@ public class Userinterface extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == changeBackgroundColorItem) {
             Random rand = new Random();
-            float hue = rand.nextFloat();
-            Color color = Color.getHSBColor(hue, 1.0f, 1.0f);
+            
+            float hue = rand.nextFloat() * 0.1667f + 0.25f;
+            Color color = Color.getHSBColor(hue, 1.0f, 1.0f); 
             getContentPane().setBackground(color);
         } else if (e.getSource() == exitItem) {
             System.exit(0);
@@ -72,3 +71,4 @@ public class Userinterface extends JFrame implements ActionListener {
         new Userinterface();
     }
 }
+ 
